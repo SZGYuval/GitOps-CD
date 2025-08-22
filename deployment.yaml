@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-app
+  namespace: python-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      containers:
+        - name: python-container
+          image: szgyuval123/gitops-repo:python-app-8-475f6cbc61b4f4a414bb02fb6aa8fc03e61a6556
+          ports:
+            - containerPort: 8000
